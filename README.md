@@ -131,6 +131,24 @@ The result:
 
 ## Scenario 2 — Static content
 
+```
+# Given the following list of players 
+pry(main)> players = ["kevin durant", "stephen curry", "klay thompson", "david west", "ian clark"]
+
+# Let's autmate the process of getting an image for each player 
+
+pry(main)> players_images = players.map do |player|
+pry(main)*   br.goto("images.google.com")
+pry(main)*   br.text_field(title: "Search").set player
+pry(main)*   br.button(type: "submit").click
+pry(main)*   sleep 1
+pry(main)*   document = Nokogiri::HTML.parse(br.html)
+pry(main)*   document.at_css("div#ires img")["src"]
+pry(main)*   end
+
+
+```
+
 ## Scenario 3 — Static content
 
 ## Scenario 4 — Static content
