@@ -40,19 +40,40 @@ rails console
 The open the browser
 
 ```ruby 
-pry(main)> br = Watir::Browser.new :firefox # or :chrome
+pry(main)> browser = Watir::Browser.new :firefox # or :chrome
 ```
 
-## Scenario 1 — Static content
+And now we are ready for scarping by covering five different scenarios.
+
+## Use case 1 — Static content
 
 ```ruby
 pry(main)> require ("opne-uri")
 
-# Get the page 
-pry(main)> endpoint = "http://www.basketball-reference.com/players/c/curryst01/gamelog/2016"
+# Targeted page that we are gonna srape 
 
-# Get the HTML page as a Nokogiri document 
-pry(main)> doc = Nokogiri::HTMLparse(open(endpoint))
+pry(main)> endpoint = "http://www.basketball-reference.com/players/c/curryst01/gamelog/2016/"
+
+# Open the the page on the browser
+
+pry(main)> browser.goto endpoint
+
+# Parse the HTML page using Nokogiri to have full control of its data structure (string representation of HTML)
+
+pry(main)> document = Nokogiri::HTML.parse(open(endpoint))
+
+# Get the biggest table that contains the data we need 
+
+pry(main)> games_table = document.css("table").sort { |x,y| y.css("tr").count <=> x.css("tr").count }.first
+
+# Grap the 3 pointers made and attempted (columns 14 and 15) with removing null values
+
+pry(main)> data = rows.map do |row|
+ [row.at_css("td:nth-child(14)").try(:text), row.at_css("td:nth-child(15)").try(:text)]
+end 
+
+pry(main)> data = data.reject { |tuple| tuple[0].nil?}
+
 ```
 The result:
 
