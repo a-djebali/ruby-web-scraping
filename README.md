@@ -1,44 +1,46 @@
 # Web scraping using Ruby 
 
-Few steps before starting hacking around web data:
+Let's do some configuration before starting hacking around web data:
 
-1. Install one of the following drivers based on the browser you are using:
+1. Download and install one of the following drivers based on the browser you are using:
 
-* Download and install [geckodriver](https://github.com/mozilla/geckodriver/releases) for chrome:  
-
-```
-cd /usr/local/bin/
-sudo wegt https://github.com/mozilla/geckodriver/releases/download/v0.16.1/geckodriver-v0.16.1-linux64.tar.gz
-sudo tar -xzvf geckodriver-v0.16.1-linux64.tar.gz
-sudo rm geckodriver-v0.16.1-linux64.tar.gz
-```
-
-* Download and install [geckodriver](https://github.com/mozilla/geckodriver/releases) for firefox: 
+* [Geckodriver](https://github.com/mozilla/geckodriver/releases) for chrome:  
 
 ```
-cd /usr/local/bin/
-sudo wegt https://github.com/mozilla/geckodriver/releases/download/v0.16.1/geckodriver-v0.16.1-linux64.tar.gz
-sudo tar -xzvf geckodriver-v0.16.1-linux64.tar.gz
-sudo rm geckodriver-v0.16.1-linux64.tar.gz
+$ cd /usr/local/bin/
+$ sudo wegt https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
+$ sudo unzip -xzvf chromedriver_linux64.zip
+$ sudo rm chromedriver_linux64.zip
 ```
 
-3. Create rails project or clone this repo and start scraping:
+* [Chromedriver](https://chromedriver.storage.googleapis.com/index.html?path=2.29/) for firefox: 
 
-* In case you wanna start a new rails project you have to install these two gems:
+```
+$ cd /usr/local/bin/
+$ sudo wegt https://github.com/mozilla/geckodriver/releases/download/v0.16.1/geckodriver-v0.16.1-linux64.tar.gz
+$ sudo tar -xzvf geckodriver-v0.16.1-linux64.tar.gz
+$ sudo rm geckodriver-v0.16.1-linux64.tar.gz
+```
+
+2. Create a rails project or just clone this repo:
+
+* In case you wanna start on your own you have to install these two gems:
 
 ```
 gem 'pry-rails'
 gem 'watir'
 ```
 
-* Otherwise just clone the current repo, then cd into web_scraper directory and type rails console 
+* Otherwise just clone the current repo, then cd into and type rails console 
 
 ```linux
 cd web_scraper/
 rails console
 ```
-```ruby 
+The open the browser
 
+```ruby 
+pry(main)> br = Watir::Browser.new :firefox # or :chrome
 ```
 
 ## Scenario 1 — Static content
