@@ -4,7 +4,7 @@ Few steps before starting hacking around web data:
 
 1. Install one of the following drivers based on the browser you are using:
 
-..* Download and install [geckodriver](https://github.com/mozilla/geckodriver/releases) for chrome:  
+* Download and install [geckodriver](https://github.com/mozilla/geckodriver/releases) for chrome:  
 
 ```
 cd /usr/local/bin/
@@ -13,7 +13,7 @@ sudo tar -xzvf geckodriver-v0.16.1-linux64.tar.gz
 sudo rm geckodriver-v0.16.1-linux64.tar.gz
 ```
 
-..* Download and install [geckodriver](https://github.com/mozilla/geckodriver/releases) for firefox: 
+* Download and install [geckodriver](https://github.com/mozilla/geckodriver/releases) for firefox: 
 
 ```
 cd /usr/local/bin/
@@ -24,14 +24,14 @@ sudo rm geckodriver-v0.16.1-linux64.tar.gz
 
 3. Create rails project or clone this repo and start scraping:
 
-..* In case you wanna start a new rails project you have to install these two gems:
+* In case you wanna start a new rails project you have to install these two gems:
 
 ```
 gem 'pry-rails'
 gem 'watir'
 ```
 
-..* Otherwise just clone the current repo, then cd into web_scraper directory and type rails console 
+* Otherwise just clone the current repo, then cd into web_scraper directory and type rails console 
 
 ```linux
 cd web_scraper/
