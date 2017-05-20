@@ -131,7 +131,7 @@ The result:
 
 ## Scenario 2 — Static content
 
-```
+```ruby
 # Given the following list of players 
 pry(main)> players = ["kevin durant", "stephen curry", "klay thompson", "david west", "ian clark"]
 
@@ -145,8 +145,16 @@ pry(main)*   sleep 1
 pry(main)*   document = Nokogiri::HTML.parse(br.html)
 pry(main)*   document.at_css("div#ires img")["src"]
 pry(main)*   end
+```
 
+The result:
 
+```ruby
+=> ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST0nA71N5t1EuWShgB6kcQWp9gITcbWj1ozRHPAOkg5VJO83nKJU82xgvH",
+ "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFFUSofO0zmFy-TVW_ShD4WB724mitg59M2Y8Qh7rJuCUqB8XwGpgVGxbP",
+ "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeu2IopG5CQ_6TwTxtTtpG9Mtb9j55nJXN83Y8wjzepo4KThkfRJRcYU44",
+ "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlrL9UnBk3AXRbfQ-hnIQ9LFoRJrdbswwXWfE2M99ZMlly-1JFJC_EPoD1",
+ "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ97P-97KU9h9dN1pCkJmHDSAve2tWtBdvgW-TvEtPYzB-IEGTEUO2Hqxk"]
 ```
 
 ## Scenario 3 — Static content
