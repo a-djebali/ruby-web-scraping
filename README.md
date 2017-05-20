@@ -44,13 +44,13 @@ rails console
 ## Scenario 1 — Static content
 
 ```ruby
-require ("opne-uri")
+pry(main)> require ("opne-uri")
 
 # Get the page 
-endpoint = "http://www.basketball-reference.com/players/c/curryst01/gamelog/2016"
+pry(main)> endpoint = "http://www.basketball-reference.com/players/c/curryst01/gamelog/2016"
 
 # Get the HTML page as a Nokogiri document 
-doc = Nokogiri::HTMLparse(open(endpoint))
+pry(main)> doc = Nokogiri::HTMLparse(open(endpoint))
 ```
 The result:
 
