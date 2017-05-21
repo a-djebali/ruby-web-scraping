@@ -1,10 +1,10 @@
-# Web scraping using Ruby 
+# Web scraping with Ruby 
 
-Let's do some configuration before starting hacking around web data:
+I'm sure you're aware of what we are going to do! If so let's do some configuration before starting hacking around Web data:
 
 1. Download and install one of the following drivers based on the browser you are using:
 
-* [Geckodriver](https://github.com/mozilla/geckodriver/releases) for chrome:  
+* [Chromedriver](https://chromedriver.storage.googleapis.com/index.html?path=2.29/) for chrome: 
 
 ```
 $ cd /usr/local/bin/
@@ -12,8 +12,7 @@ $ sudo wegt https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux6
 $ sudo unzip -xzvf chromedriver_linux64.zip
 $ sudo rm chromedriver_linux64.zip
 ```
-
-* [Chromedriver](https://chromedriver.storage.googleapis.com/index.html?path=2.29/) for firefox: 
+* [Geckodriver](https://github.com/mozilla/geckodriver/releases) for firefox:  
 
 ```
 $ cd /usr/local/bin/
@@ -24,9 +23,9 @@ $ sudo rm geckodriver-v0.16.1-linux64.tar.gz
 
 2. Create a rails project or just clone this repo:
 
-* In case you wanna start on your own you have to install these two gems:
+* In case you gonna start on your own you have to install these two gems:
 
-```
+```ruby
 gem 'pry-rails'
 gem 'watir'
 ```
@@ -37,13 +36,13 @@ gem 'watir'
 cd web_scraper/
 rails console
 ```
-The open the browser
+Then open the browser by typing
 
 ```ruby 
 pry(main)> browser = Watir::Browser.new :firefox # or :chrome
 ```
 
-And now we are ready for scarping by covering five different scenarios.
+And now we are ready for scarping by covering the most common scenarios.
 
 ## Use case 1 — Static content
 
@@ -146,7 +145,7 @@ pry(main)* JAVASCRIPT
 pry(main)> browser.execute_script(script)
 ```
 
-```
+```ruby
 => [[0, nil, nil],
  [1, "Jump Ball Plumlee vs. Bogut: Tip to Green", nil],
  [2, nil, nil],
@@ -161,12 +160,12 @@ pry(main)> browser.execute_script(script)
 :
 ```
 
-```
+```ruby
 pry(main)> data = _
 pry(main)> data.map { |item| item.compact }.reject { |item| item.length == 1 }
 ```
 
-```
+```ruby
 => [[1, "Jump Ball Plumlee vs. Bogut: Tip to Green"],
  [3, "Plumlee REBOUND (Off:0 Def:1)"],
  [4, "MISS Lillard 22' Jump Shot"],
@@ -189,12 +188,4 @@ pry(main)> data.map { |item| item.compact }.reject { |item| item.length == 1 }
 :
 ```
 
-
-## Scenario 4 — Static content
-
-## Scenario 4 — Static content
-
-
-
-
-
+## More scenarios soon!
