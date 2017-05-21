@@ -157,7 +157,13 @@ The result:
  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ97P-97KU9h9dN1pCkJmHDSAve2tWtBdvgW-TvEtPYzB-IEGTEUO2Hqxk"]
 ```
 
-## Scenario 3 — Static content
+## Scenario 3 — JavaScript injection
+
+
+
+```ruby
+pry(main)> endpoint = "http://stats.nba.com/game/#!/0021500548/playbyplay/"
+```
 
 ## Scenario 4 — Static content
 
